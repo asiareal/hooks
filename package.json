@@ -1,0 +1,30 @@
+{
+  "name": "@asiareal/hooks",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "pnpm package:start & pnpm docs:start",
+    "docs:start": "ice-pkg start",
+    "package:start": "pnpm --parallel -r run start",
+    "build": "pnpm -r run build",
+    "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
+    "eslint:fix": "pnpm eslint --fix",
+    "stylelint": "stylelint \"**/*.{css,scss,less}\"",
+    "stylelint:fix": "pnpm stylelint --fix",
+    "lint": "pnpm eslint && pnpm stylelint",
+    "lint:fix": "pnpm eslint:fix && pnpm stylelint:fix"
+  },
+  "devDependencies": {
+    "@applint/spec": "^1.0.0",
+    "@asiareal/config-prettier": "^0.1.1",
+    "@asiareal/use-iframe": "workspace:*",
+    "@ice/pkg": "^1.5.0",
+    "@ice/pkg-plugin-docusaurus": "^1.4.18",
+    "eslint": "^8.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^4.1.2",
+    "stylelint": "^15.0.0"
+  },
+  "packageManager": "pnpm@8.6.0"
+}
