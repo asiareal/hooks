@@ -14,11 +14,15 @@
     "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
     "eslint:fix": "pnpm eslint --fix",
     "ci:publish": "pnpm publish -r",
-    "ci:version": "changeset version"
+    "ci:version": "changeset version",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@applint/spec": "^1.0.0",
+    "@asiareal/hooks-base": "workspace:^",
+    "@asiareal/hooks-use-iframe": "workspace:^",
     "@changesets/cli": "^2.27.10",
+    "@commitlint/cli": "^19.6.1",
     "@docusaurus/module-type-aliases": "^2.3.1",
     "@docusaurus/theme-classic": "^2.3.1",
     "@ice/pkg": "^1.5.0",
@@ -26,11 +30,13 @@
     "@tsconfig/docusaurus": "^1.0.6",
     "@types/node": "^22.10.1",
     "@types/react": "^18.0.28",
-    "@asiareal/hooks-base": "workspace:^",
-    "@asiareal/hooks-use-iframe": "workspace:^",
     "clsx": "^1.2.1",
     "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "gh-pages": "^6.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^4.1.2"
@@ -39,5 +45,10 @@
     "@ice/jsx-runtime": "^0.3.1",
     "posthog-js": "^1.197.0"
   },
-  "packageManager": "pnpm@8.6.0"
+  "packageManager": "pnpm@8.6.0",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "pnpm exec eslint --fix"
+    ]
+  }
 }
