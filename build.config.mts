@@ -8,30 +8,23 @@ export default defineConfig({
         title: '@asiareal/hooks - 好用的 hooks 库',
         navBarTitle: '@asiareal/hooks - 好用的 hooks 库',
         path: 'packages',
-        // sidebarItemsGenerator: (args: any) => {
-        //   // The index.md doc should not be the category, so we rewrite the default isCategoryIndex function.
-        //   function isCategoryIndex({ fileName, directories }: any) {
-        //     const eligibleDocIndexNames: string[] = [
-        //       'readme',
-        //       directories[0].toLowerCase(),
-        //     ];
-        //     return eligibleDocIndexNames.includes(fileName.toLowerCase());
-        //   }
-        //   const defaultSidebarItems = args.defaultSidebarItemsGenerator({
-        //     ...args,
-        //     isCategoryIndex,
-        //   });
-        //   // 1. Remove the `docs` category.
-        //   // 2. Remove category link.
-        //   const newSidebarItems = defaultSidebarItems.map(({ link, ...rest }: any) => ({
-        //     ...rest,
-        //     items: rest.items.map((item: any) => item.items).flat(),
-        //   }));
-
-        //   return newSidebarItems;
-        // },
         exclude: ['**/node_modules/**'],
         onBrokenLinks: 'warn',
+        sidebarItemsGenerator: async () => {
+          return [
+            {
+              type: 'category',
+              label: '基础 hooks',
+              items: [{ type: 'doc', id: 'base/docs/useEventListener', label: 'useEventListener' }],
+            },
+            { type: 'doc', id: 'useIframe/docs/index', label: 'useIframe' },
+          ];
+        },
+        pageRouteBasePath: '/',
+        url: 'https://asiareal.github.io',
+        baseUrl: '/hooks',
+        navBarLogo: '/hooks/img/logo.png',
+        favicon: '/hooks/favicon.ico',
       },
     ],
   ],

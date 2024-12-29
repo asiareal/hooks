@@ -3,28 +3,41 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "pnpm package:start & pnpm docs:start",
+    "start": "pnpm packages:start & pnpm docs:start",
+    "build": "pnpm packages:build && pnpm docs:build",
+    "packages:start": "pnpm --parallel -r run start",
+    "packages:build": "pnpm -r run build",
     "docs:start": "ice-pkg start",
-    "package:start": "pnpm --parallel -r run start",
-    "build": "pnpm -r run build",
+    "docs:build": "ice-pkg build",
+    "deploy": "gh-pages -d build",
+    "create": "pnpm create @ice/pkg --workspace",
     "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
     "eslint:fix": "pnpm eslint --fix",
-    "stylelint": "stylelint \"**/*.{css,scss,less}\"",
-    "stylelint:fix": "pnpm stylelint --fix",
-    "lint": "pnpm eslint && pnpm stylelint",
-    "lint:fix": "pnpm eslint:fix && pnpm stylelint:fix"
+    "ci:publish": "pnpm publish -r",
+    "ci:version": "changeset version"
   },
   "devDependencies": {
     "@applint/spec": "^1.0.0",
-    "@asiareal/config-prettier": "^0.1.1",
-    "@asiareal/use-iframe": "workspace:*",
+    "@changesets/cli": "^2.27.10",
+    "@docusaurus/module-type-aliases": "^2.3.1",
+    "@docusaurus/theme-classic": "^2.3.1",
     "@ice/pkg": "^1.5.0",
-    "@ice/pkg-plugin-docusaurus": "^1.4.18",
+    "@ice/pkg-plugin-docusaurus": "^1.4.3",
+    "@tsconfig/docusaurus": "^1.0.6",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.0.28",
+    "@asiareal/hooks-base": "workspace:^",
+    "@asiareal/hooks-use-iframe": "workspace:^",
+    "clsx": "^1.2.1",
     "eslint": "^8.0.0",
+    "gh-pages": "^6.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rimraf": "^4.1.2",
-    "stylelint": "^15.0.0"
+    "rimraf": "^4.1.2"
+  },
+  "dependencies": {
+    "@ice/jsx-runtime": "^0.3.1",
+    "posthog-js": "^1.197.0"
   },
   "packageManager": "pnpm@8.6.0"
 }

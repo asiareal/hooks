@@ -1,11 +1,11 @@
 {
-  "name": "@asiareal/hooks-use-iframe",
+  "name": "@asiareal/hooks-base",
   "version": "0.1.0",
-  "description": "an easy way to sync state between iframes",
+  "description": "一些基础的 hooks",
   "files": [
     "esm",
-    "cjs",
     "es2017",
+    "cjs",
     "dist"
   ],
   "main": "esm/index.js",
@@ -32,27 +32,30 @@
   ],
   "scripts": {
     "start": "ice-pkg start",
-    "build": "rimraf esm es2017 && ice-pkg build",
+    "build": "ice-pkg build",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
-    "icepkg",
+    "ice",
     "react",
     "component"
   ],
   "dependencies": {
-    "@ice/jsx-runtime": "^0.2.0",
     "@swc/helpers": "^0.5.1",
-    "@asiareal/hooks-base": "workspace:^"
+    "@ice/jsx-runtime": "^0.2.0"
   },
   "devDependencies": {
     "@ice/pkg": "^1.0.0",
-    "@types/react": "^18.0.0",
     "react": "^18.0.0",
-    "typescript": "^4.9.4"
+    "react-dom": "^18.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
   },
   "peerDependencies": {
     "react": "^17 || ^18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "license": "MIT"
 }
