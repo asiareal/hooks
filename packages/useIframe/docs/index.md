@@ -24,15 +24,14 @@ import { useIframeState } from '@asiareal/hooks-use-iframe';
 // 父页面
 const Parent = () => {
   const ref = React.useRef<HTMLIFrameElement>(null);
-  
+
   const [count, setCount] = useIframeState(0, { topic: 'demo.default', ref });
 
   return (
     <div>
       <h3>parent</h3>
-      <button onClick={() => setCount((prev) => prev + 1)}>
-        Increment
-      </button>
+      <button onClick={() => setCount((prev) => prev + 1)}>Increment</button>
+      <button onClick={() => setCount((prev) => prev - 1)}>Decrement</button>
       <p>Count: {count}</p>
       <iframe ref={ref} src="/hooks/demos/iframe1" style={{ border: '1px solid red' }} />
     </div>
@@ -46,9 +45,8 @@ const Child = () => {
   return (
     <div>
       <h3>child</h3>
-      <button onClick={() => setCount((prev) => prev + 1)}>
-        Increment
-      </button>
+      <button onClick={() => setCount((prev) => prev + 1)}>Increment</button>
+      <button onClick={() => setCount((prev) => prev - 1)}>Decrement</button>
       <p>Count: {count}</p>
     </div>
   );
